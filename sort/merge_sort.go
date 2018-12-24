@@ -2,15 +2,22 @@ package sort
 
 func MergeSort(arr []int) {
 	var arrL, arrR []int
-	if len(arr) > 1 {
-		arrL = arr[:len(arr)/2]
-		arrR = arr[len(arr)/2:]
-		MergeSort(arrL)
-		MergeSort(arrR)
-	}
 	if len(arr) < 2 {
 		return
 	}
+
+	mid := len(arr) / 2
+
+	arrL = arr[:mid]
+	arrR = arr[mid:]
+
+	MergeSort(arrL)
+	MergeSort(arrR)
+
+	if arrL[len(arrL)-1] <= arrR[0] {
+		return
+	}
+
 	arrSorted := make([]int, len(arr))
 	for pos, posL, posR := 0, 0, 0; pos < len(arrSorted); pos++ {
 		if posL >= len(arrL) && posR < len(arrR) {
