@@ -6,6 +6,7 @@ import (
 )
 
 func QuickSort2Ways(arr []int) {
+	// too many boundary conditions need to write, if there isn't InsertSort
 	if len(arr) < 16 {
 		InsertSort(arr)
 		return
@@ -40,7 +41,7 @@ func QuickSort2Ways(arr []int) {
 }
 
 func QuickSort3Ways(arr []int) {
-	// 注意如果没有插入排序，需要考虑很多边界情况
+	// too many boundary conditions need to write, if there isn't InsertSort
 	if len(arr) < 16 {
 		InsertSort(arr)
 		return

@@ -20,20 +20,17 @@ func MergeSort(arr []int) {
 
 	arrSorted := make([]int, len(arr))
 	for pos, posL, posR := 0, 0, 0; pos < len(arrSorted); pos++ {
-		if posL >= len(arrL) && posR < len(arrR) {
+		switch {
+		case posL >= len(arrL) && posR < len(arrR):
 			arrSorted[pos] = arrR[posR]
 			posR++
-			continue
-		}
-		if posR >= len(arrR) && posL < len(arrL) {
+		case posR >= len(arrR) && posL < len(arrL):
 			arrSorted[pos] = arrL[posL]
 			posL++
-			continue
-		}
-		if arrL[posL] < arrR[posR] {
+		case arrL[posL] < arrR[posR]:
 			arrSorted[pos] = arrL[posL]
 			posL++
-		} else {
+		case arrL[posL] >= arrR[posR]:
 			arrSorted[pos] = arrR[posR]
 			posR++
 		}
